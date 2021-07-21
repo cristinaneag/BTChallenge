@@ -6,7 +6,6 @@ import java.util.Date;
 public class Companie {
 	private ArrayList<Angajat> angajati = new ArrayList<Angajat>();	
 	private ArrayList<Departament> departamente = new ArrayList<Departament>();
-	private ArrayList<Proiect> proiecte = new ArrayList<Proiect>();
 	
 	public void setAngajati(ArrayList<Angajat> ang) {
 		this.angajati=ang;
@@ -24,18 +23,10 @@ public class Companie {
 		this.departamente = departamente;
 	}
 
-	public ArrayList<Proiect> getProiecte() {
-		return proiecte;
-	}
-
-	public void setProiecte(ArrayList<Proiect> proiecte) {
-		this.proiecte = proiecte;
-	}
-
 	//atribuire angajati pe proiect
-	public ArrayList<Angajat> setProiect(Proiect p) {
+	public ArrayList<Angajat> setProiect(ArrayList<Angajat> angajati_proiect, Proiect p) {
 		ArrayList<Angajat> ang_indisponibili = new ArrayList<Angajat>();
-		this.angajati.forEach(a->{
+		angajati_proiect.forEach(a->{
 			if((a.getConcediu().getData_inceput().isAfter(p.getData_start()) && a.getConcediu().getData_inceput().isBefore(p.getData_final())) ||
 			(a.getConcediu().getData_final().isAfter(p.getData_start()) && a.getConcediu().getData_final().isBefore(p.getData_final())
 					)) {

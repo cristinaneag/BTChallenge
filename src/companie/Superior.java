@@ -7,10 +7,10 @@ public class Superior extends Angajat {
 	private String nume;
 	private LocalDate data_angajarii;
 
-	public Superior(LocalDate data_angajarii, String nume, Departament d) {
-		super(data_angajarii, nume);
-		this.data_angajarii=data_angajarii;
-		this.nume=nume;
+	public Superior(Angajat a, Departament d) {
+		super(a.getData_angajarii(), a.getNume());
+		this.data_angajarii=a.getData_angajarii();
+		this.nume=a.getNume();
 		this.departament=d;
 	}
 

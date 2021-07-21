@@ -53,24 +53,23 @@ public class Test {
 		
 		Proiect p2 =  new Proiect(LocalDate.of(2021,5,20),LocalDate.of(2021,7,20));
 		proiecte.add(p2);
-		com.setProiecte(proiecte);
 		
-		System.out.println("Persoanele indisponibile pentru proiect1: "+com.setProiect(p1));
-		System.out.println("Persoanele indisponibile pentru proiect2: "+com.setProiect(p2));
+		System.out.println("Persoanele indisponibile pentru proiect1: "+com.setProiect(angajati,p1));
+		System.out.println("Persoanele indisponibile pentru proiect2: "+com.setProiect(angajati,p2));
 		
 		//ANGAJATII UNUI DEPARTAMENT///
+		ArrayList<Departament> dep = new ArrayList<Departament>();
 		Departament dep1 = new Departament("Java",ang2);
 		Departament dep2 = new Departament("Baze de date",ang5);
-		ArrayList<Superior> superior_Java = new ArrayList<Superior>();
-		ArrayList<Superior> superior_BD = new ArrayList<Superior>();
-		Superior sup_Java = new Superior(ang2.getData_angajarii(),ang2.getNume(),dep1);
-		Superior sup_BD = new Superior(ang5.getData_angajarii(),ang5.getNume(),dep2);
-		superior_Java.add(sup_Java); superior_BD.add(sup_BD);	
-		
-		ArrayList<Departament> dep = new ArrayList<Departament>();
 		dep.add(dep1); dep.add(dep2);
 		com.setDepartamente(dep);
 		
+		ArrayList<Superior> superior_Java = new ArrayList<Superior>();
+		ArrayList<Superior> superior_BD = new ArrayList<Superior>();
+		Superior sup_Java = new Superior(ang2,dep1);
+		Superior sup_BD = new Superior(ang5,dep2);
+		superior_Java.add(sup_Java); superior_BD.add(sup_BD);	
+				
 		ArrayList<Angajat> angajati_dep1 = new ArrayList<Angajat>();
 		angajati_dep1.add(ang1);angajati_dep1.add(ang2);angajati_dep1.add(ang4);
 		ang1.setSuperior_direct(superior_Java);
